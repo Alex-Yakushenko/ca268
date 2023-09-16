@@ -96,9 +96,3 @@ def filter_star(dict, num):
     else:
         print("No result found!")
 
-filter_star({
-  'Luxury Chocolates': '*****',
-  'Tasty Chocolates': '****',
-  'Big Chocolates': '*****',
-  'Generic Chocolates': '***'
-}, 2)

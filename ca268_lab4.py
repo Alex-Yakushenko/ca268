@@ -95,9 +95,14 @@ class Deque:
     def __len__(self):
         return len(self.items)
 
-stack = Stack()
-stack.push(2)
-stack.push(1)
-stack.push(4)
-stack.push(3)
-stack.push(5)
+def bin_seq(number):
+    queue = Queue()
+    queue.enqueue("1")
+    i = 0
+    while i < number:
+        binary = queue.enqueue()
+
+        queue.enqueue(binary + "0")
+        queue.enqueue(binary + "1")
+bin_seq(16)
+    

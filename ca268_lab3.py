@@ -14,7 +14,7 @@ def reverse_int(n):
     reverse_remaining = reverse_int(n // 10)
     number = f"{last}{reverse_remaining}"
     return number
-#print(reverse_int(12345))
+print(reverse_int(12345))
 
 def reverse_str(message):
     if len(message) == 1:
@@ -23,7 +23,7 @@ def reverse_str(message):
     reverse_remaining = reverse_str(message[:-1])
     reversed_message = last + reverse_remaining
     return reversed_message
-#print(reverse_str("hello there"))
+print(reverse_str("hello there"))
 
 def inverse_list(my_list):
     if len(my_list) == 1:

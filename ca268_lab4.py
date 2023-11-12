@@ -22,7 +22,9 @@ class Stack:
         return len(self.items)
     def reverse(self):
         return self.items[::-1]
-    def sort(self):
+    
+    '''
+    def sort(self, n):
         n = len(self.items)
         if n == 1:
             return self.items
@@ -32,6 +34,7 @@ class Stack:
 
         sort(self.items, n - 1)
         return self.items
+    '''
         
         
 
@@ -100,9 +103,54 @@ def bin_seq(number):
     queue.enqueue("1")
     i = 0
     while i < number:
-        binary = queue.enqueue()
-
+        binary = queue.dequeue()
+        print(binary)
         queue.enqueue(binary + "0")
         queue.enqueue(binary + "1")
-bin_seq(16)
-    
+        i += 1
+#bin_seq(16)
+
+def lifo_seq(message):
+    first_stack = Stack()
+    output = []
+    for i in message:
+        if i == "*":
+            output.append(first_stack.pop())
+        else:
+            first_stack.push(i)
+    print(output)
+#lifo_seq('EAS*Y*QUE***ST***IO*N***')
+
+def fifo_seq(message):
+    queue = Queue()
+    output = []
+    for i in message:
+        if i == "*":
+            output.append(queue.dequeue())
+        else:
+            queue.enqueue(i)
+    print(output)
+#fifo_seq('EAS*Y*QUE***ST***IO*N***')
+
+def stack_reverse(message):
+    stack = Stack()
+    for i in message:
+        stack.push(i)
+    output = ""
+    for i in range(stack.size()):
+        output += stack.pop()
+    print(output)
+#stack_reverse("hello!")
+
+def postfix(expression):
+    stack = Stack()
+    operators = "+-*/^"
+    for i in expression:
+        if i in operators:
+            b = int(stack.pop())
+            a = int(stack.pop())
+            stack.push({"+" : a + b, "-" : a - b, "*" : a * b, "/" : a / b, "^" : a ** b}[i])
+        else:
+            stack.push(i)
+    print(stack.pop())
+#postfix("1432^*+147--+")
